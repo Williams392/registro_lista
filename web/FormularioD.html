@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script>
+            function mostrar(){
+                cod = document.getElementById("tcodigo").value;
+                nom = $("#tnombre").val();
+                alert(cod);
+                alert(nom);
+                $.ajax({
+                    data:{txtCodigo:cod, txtNombre:nom},
+                    type: 'POST',
+                    url:"curso.jsp", 
+                    success: function (res) {
+                        document.getElementById("resultado").innerHTML = res;
+                        $("#resultado").html(res);
+                    }
+                });
+            }
+            
+        </script>
+    </head>
+    <body>
+        Codigo: <input type="text" id="tcodigo"><br>
+        Nombre: <input type="text" id="tnombre"><br>
+        <input type="button" value="Enviar" onclick="mostrar()"><br>
+        
+        <div id="resultado">
+            
+            
+        </div>
+    </body>
+</html>
